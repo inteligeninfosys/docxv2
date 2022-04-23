@@ -1,0 +1,24 @@
+const express = require('express');
+const app = express();
+const router = express.Router();
+const cors = require('cors')
+
+//include the routes file
+var repossessionsendphy_word = require('./routes/repossessionsendphy_word');
+
+app.use('/docxv2/repossessionsendphy_word', repossessionsendphy_word);
+
+router.get('/', function (req, res) { 
+  res.json({ message: 'Demand letters ready Home!' });
+});
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(cors())
+
+//add the router
+app.use('/docxv2', router);
+app.listen(process.env.port || 8040);
+
+console.log('Running at Port 8040');

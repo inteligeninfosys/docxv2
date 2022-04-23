@@ -1,0 +1,21 @@
+{
+  "name": "docx-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "docx": "^6.0.1",
+    "express": "^4.17.3",
+    "log-timestamp": "^0.3.0",
+    "minio": "^7.0.27",
+    "nodemailer": "^6.7.3",
+    "numeral": "^2.0.6"
+  }
+}
