@@ -14,7 +14,7 @@ node {
 
       stage('Test'){
 
-          sh 'echo Testing ...'
+          sh 'date -d \'+3 hour\' +%d%m%Y%H%M%S'
 
         }
 
@@ -24,7 +24,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker_credentials') {
-            app.push("${env.BUILD_NUMBER}.sh('date -d \'+3 hour\' +%d%m%Y%H%M%S')")
+            app.push("${env.BUILD_NUMBER}.${env.currentDateTime}")
             app.push("latest")
         }
       }
