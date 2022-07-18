@@ -15,7 +15,7 @@ node {
         script {
           currentDateTime = sh(returnStdout: true, script: 'date -d \'+3 hour\' +%d%m%Y%H%M%S').trim()
         }
-        sh "echo ...tests on .... ${currentDateTime}"
+        sh "echo ...tests on ..ddmmyyyhhmmss.. ${currentDateTime}"
 
         }
 
