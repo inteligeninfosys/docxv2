@@ -1,7 +1,7 @@
 node {
       def app
       environment {
-        currentDateTime = sh('date -d \'+3 hour\' +%d%m%Y%H%M%S')
+        currentDateTime = sh(returnStdout: true, script: 'date -d \'+3 hour\' +%d%m%Y%H%M%S').trim()
       }
 
       stage('Clone repository') {
@@ -14,7 +14,7 @@ node {
 
       stage('Test'){
 
-          sh 'date -d \'+3 hour\' +%d%m%Y%H%M%S'
+          sh 'echo ... No Tests yet'
 
         }
 
