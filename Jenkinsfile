@@ -17,8 +17,9 @@ node {
         script {
           DATE_TAG = java.time.LocalDate.now()
           DATETIME_TAG = java.time.LocalDateTime.now()
+          currentDateTime = sh(returnStdout: true, script: 'date -d \'+3 hour\' +%d%m%Y%H%M%S').trim()
         }
-        sh "echo ${DATETIME_TAG}"
+        sh "echo ${currentDateTime}"
 
         }
 
