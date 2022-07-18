@@ -291,6 +291,8 @@ router.post('/download', function (req, res) {
                     }),
                     new Paragraph(''),
                     new Paragraph(''),
+                    new Paragraph('Branch Reference number'),
+                    new Paragraph(''),
                     new Table({
                         width: {
                             size: 9035,
@@ -336,7 +338,7 @@ router.post('/download', function (req, res) {
                                             },
                                         },
                                         children: [
-                                            new Paragraph('Date: '+ year + "-" + month + "-" + day),
+                                            new Paragraph('Date issued: '+ year + "-" + month + "-" + day),
                                         ],
                                     }),
                                     new TableCell({
@@ -361,224 +363,21 @@ router.post('/download', function (req, res) {
                                     }),
                                 ]
                             }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('To')],
-                                    }),
-                                    new TableCell({
-                                        children: [new Paragraph(': ' + letter_data.auctioneername)],
-                                    }),
-                                ]
-                            }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Asset Finance Agreement No.')],
-                                    }),
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': ' + letter_data.assetfaggnum)],
-                                    }),
-                                ]
-                            }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Hirer’s Name')],
-                                    }),
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': ' + letter_data.custname)],
-                                    }),
-                                ]
-                            }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Unit Financed')],
-                                    }),
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': ' + letter_data.vehiclemake + ' & ' + letter_data.vehiclemodel)],
-                                    }),
-                                ]
-                            }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        width: {
-                                            size: 4035,
-                                            type: WidthType.DXA,
-                                        },
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Registration No')],
-                                    }),
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': ' + letter_data.vehicleregno)],
-                                    }),
-                                ]
-                            })
                         ]
                     }),// end table
                     new Paragraph(''),
-                    new Paragraph({
-                        children: [new TextRun("According to our records, the monthly rental of the above Asset finance Agreement is now in arrears. The total amount due is Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00'))],
-                    }),
+                    new Paragraph('To:'),
+                    new Paragraph(''),
+                            new Paragraph(letter_data.auctioneername),
+                            new Paragraph(letter_data.auctioneername),
+                    new Paragraph(''),
+                    new Paragraph('Dear Sir/Madam'),
                     new Paragraph(''),
                     new Paragraph({
-                        children: [new TextRun("Please approach the above named Hirer on our behalf and collect the total sum of Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00') + " plus your own charges, failing which you may take this letter as your authority to effect immediate re-possession of the above/equipment without further reference to us. HIRER MUST MAKE PAYMENT VIDE CASH OR BY BANKER’S CHEQUE AS PERSONAL CHEQUE(S) WILL NOT BE ACCEPTED. From our records, we are able to give the following additional information regarding this Agreement, which may assist you in your task of locating the hirer and/or the motor vehicle/equipment: -")],
+                        children: [new TextRun({ text: "RE: REPOSSESSION/COLLECTION ORDER", bold: true, underline: true})]
                     }),
                     new Paragraph(''),
+
                     new Table({
                         width: {
                             size: 9035,
@@ -603,6 +402,7 @@ router.post('/download', function (req, res) {
                             },
                         },
                         rows: [
+                            
                             new TableRow({
                                 children: [
                                     new TableCell({
@@ -624,7 +424,37 @@ router.post('/download', function (req, res) {
                                             },
                                         },
                                         children: [
-                                            new Paragraph('Postal Address'),
+                                            new Paragraph('Account No. '),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        
+                                        children: [new Paragraph(letter_data.accnumber)],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [
+                                            new Paragraph('Debtor. '),
                                         ],
                                     }),
                                     new TableCell({
@@ -645,7 +475,7 @@ router.post('/download', function (req, res) {
                                                 color: "ffffff",
                                             },
                                         },
-                                        children: [new Paragraph(': '+ letter_data.postaladdress || 'N/A')],
+                                        children: [new Paragraph(letter_data.custname)],
                                     }),
                                 ]
                             }),
@@ -669,382 +499,308 @@ router.post('/download', function (req, res) {
                                                 color: "ffffff",
                                             },
                                         },
+                                        children: [
+                                            new Paragraph('Unit '),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        
+                                        children: [new Paragraph(letter_data.vehiclemake)],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [
+                                            new Paragraph('Reg No. '),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [new Paragraph(letter_data.vehicleregno)],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [
+                                            new Paragraph('Chassis No. '),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [new Paragraph(letter_data.chassisnumber)],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [
+                                            new Paragraph('Engine No. '),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        borders: {
+                                            top: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            right: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                            bottom: {
+                                                style: BorderStyle.DASH_DOT_STROKED,
+                                                size: 1,
+                                                color: "ffffff",
+                                            },
+                                        },
+                                        children: [new Paragraph(letter_data.engineno)],
+                                    }),
+                                ]
+                            }),
+                        ]
+                    }),// end table
+                    
+                    new Paragraph(''),
+                    new Paragraph({
+                        children: [new TextRun("According to our records, the monthly rental of the above Asset finance Agreement is now in arrears. The total amount due is Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00'))],
+                    }),
+                    new Paragraph(''),
+                    
+                    new Paragraph({
+                        children: [new TextRun("Please approach the above named Debtor on our behalf and collect the total sum of Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00') + " plus your own charges or, failing this, you may take this letter as your authority to effect immediate re-possession of the above vehicle without further reference to us. ")],
+                    }),
+                    new Paragraph(''),
+                    new Paragraph({
+                        children: [new TextRun("Upon successful Repossession, the Motor Vehicle / Asset shall be booked at the nearest storage yard as detailed in the attached list of storage yards in the Bank’s panel. ")]
+                    }),
+                    new Paragraph(''),
+                    new Paragraph({
+                        children: [new TextRun("All payments MUST be made to the Co-operative Bank Account of the borrower as indicated above.")]
+                    }),
+                    new Paragraph({
+                        children: [new TextRun("From our records, we are able to give the following additional information regarding this Agreement, which may assist you in your task: -")]
+                    }),
+                    new Paragraph(''),
+                    new Table({
+                        width: {
+                            size: 9035,
+                            type: WidthType.DXA,
+                        },
+                        
+                        rows: [
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        
+                                        children: [
+                                            new Paragraph('Postal address of Debtor'),
+                                        ],
+                                    }),
+                                    new TableCell({
+                                        
+                                        children: [new Paragraph(letter_data.postaladdress || 'N/A')],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        
                                         children: [new Paragraph('Telephone')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.celnumber || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.celnumber || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Physical Address/Location')],
+                                        
+                                        children: [new Paragraph('Actual physical address (if known) ')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.place || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.place || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Type of Business')],
+                                        
+                                        children: [new Paragraph('Employer (where applicable)')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.typeofbusiness || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.employer || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
+                                        
+                                        children: [new Paragraph('Type of business ')],
+                                    }),
+                                    new TableCell({
+                                        
+                                        children: [new Paragraph(letter_data.typeofbusiness || 'N/A')],
+                                    }),
+                                ]
+                            }),
+                            new TableRow({
+                                children: [
+                                    new TableCell({
+                                        
                                         children: [new Paragraph('Bankers and Branch')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.branchname || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.branchname || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Purpose of Vehicle')],
+                                        
+                                        children: [new Paragraph('Purpose for which vehicle is being used ')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.purposeofvehicle || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.purposeofvehicle || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Guarantors')],
+                                        
+                                        children: [new Paragraph('Guarantor (if any)')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.guarantors || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.guarantors || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Guarantors Address')],
+                                        
+                                        children: [new Paragraph('Address of Guarantor')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.guarantorsaddress || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.guarantorsaddress || 'N/A')],
                                     }),
                                 ]
                             }),
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Chassis No.')],
+                                        
+                                        children: [new Paragraph('Tracking Information / Report')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.chassisnumber || 'N/A')],
+                                        
+                                        children: [new Paragraph(letter_data.trackinginformation || 'N/A')],
                                     }),
                                 ]
                             }),
-                            new TableRow({
-                                children: [
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph('Engine No.')],
-                                    }),
-                                    new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
-                                        children: [new Paragraph(': '+ letter_data.engineno || 'N/A')],
-                                    }),
-                                ]
-                            }),
+                            
                             new TableRow({
                                 children: [
                                     new TableCell({
@@ -1052,43 +808,10 @@ router.post('/download', function (req, res) {
                                             size: 4035,
                                             type: WidthType.DXA,
                                         },
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
                                         children: [new Paragraph('Any other information')],
                                     }),
                                     new TableCell({
-                                        borders: {
-                                            top: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            right: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                            bottom: {
-                                                style: BorderStyle.DASH_DOT_STROKED,
-                                                size: 1,
-                                                color: "ffffff",
-                                            },
-                                        },
+                                        
                                         children: [new Paragraph(letter_data.anyotherinfo)],
                                     }),
                                 ]
@@ -1096,18 +819,38 @@ router.post('/download', function (req, res) {
                         ]
                     }),// end table
                     new Paragraph(''),
-                    new Paragraph('Vehicle tracked by: '+ letter_data.trackingcompany),
+                    new Paragraph({
+                        children: [new TextRun({ text: "Terms and Conditions:", bold: true, underline: true})]
+                    }),
+                    new Paragraph(''),
+                    new Paragraph('1. These instructions DO NOT give the auctioneer the right to sell the securities / motor vehicle / assets seized from the borrower or guarantor.'),
+                    
+                    new Paragraph('2. Repossession fee and all other costs relating to recovery of the motor vehicle(s) will only be paid to the auctioneer who successfully recovers the asset on behalf of the Co-operative Bank.'),
+                    
+                    new Paragraph('3. The successful auctioneer must provide the booking form which details the following:'),
+                    new Paragraph('     a. Detailed description of the repossessed vehicle'),
+                    new Paragraph('     b. Storage Yard Booking Sheet from the designated Yard'),
+                    new Paragraph('4. Repossession fee will be paid in line with the contract terms agreed on between the Bank and yourselves and will be done directly by Co-operative Bank.'),
+                    new Paragraph('5. These instructions are valid for fourteen (14) calendar days.'),
+                    new Paragraph('6. For any exceptions to the above, kindly obtain approval beforehand from the undersigned. '),
+                    new Paragraph(''),
                     new Paragraph(''),
                     new Paragraph('Yours Faithfully,'),
                     new Paragraph(''),
                     new Paragraph(''),
                     new Paragraph(''),
                     new Paragraph(''),
-                    new Paragraph('AUTHORISED SIGNATORY,'),
+                    new Paragraph('Authorised Signatory                                                                                     Authorised Signatory'),
+                    new Paragraph('Signature Number                                                                                         Signature Number'),
                     new Paragraph(''),
-                    new Paragraph('Cc'),
-                    new Paragraph(letter_data.custname),
-                    new Paragraph(letter_data.postaladdress)
+                    new Paragraph({
+                        children: [new TextRun({ text: "Acceptance by Auctioneer:", bold: true, underline: true})]
+                    }),
+                    new Paragraph(''),
+                    new Paragraph('I ………………………………………………… on behalf of ………………………………… confirm that I have read, understood and acceptance with the terms and conditions as stated in the repossession instruction.'),
+                    new Paragraph(''),
+                    new Paragraph(''),
+                    new Paragraph('Name: ……………………………………… Signature: …………………………… Date: ……………………')
                 ],
                 
             },
