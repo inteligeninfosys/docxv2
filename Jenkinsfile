@@ -14,7 +14,11 @@ node {
 
       stage('Test'){
 
-          sh 'echo ... No Tests yet'
+        script {
+          DATE_TAG = java.time.LocalDate.now()
+          DATETIME_TAG = java.time.LocalDateTime.now()
+        }
+        sh "echo ${DATETIME_TAG}"
 
         }
 
