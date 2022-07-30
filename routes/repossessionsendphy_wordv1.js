@@ -19,14 +19,14 @@ var data = require('./data.js');
 
 const LETTERS_DIR = data.filePath;
 const d_t = new Date();
- 
+
 let year = d_t.getFullYear();
 let month = ("0" + (d_t.getMonth() + 1)).slice(-2);
 let day = ("0" + d_t.getDate()).slice(-2);
 
 
-const { Document, Footer, ImageRun, Packer, Paragraph, Table, TableCell, TableRow, AlignmentType,Column,
-    BorderStyle,WidthType,TextRun  } = docx;
+const { Document, Footer, ImageRun, Packer, Paragraph, Table, TableCell, TableRow, AlignmentType, Column,
+    BorderStyle, WidthType, TextRun } = docx;
 
 
 router.use(express.urlencoded({ extended: true }));
@@ -35,12 +35,12 @@ router.use(express.json());
 router.use(cors());
 
 
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
     res.json({ message: 'Reposession send physically letter is ready!' });
 });
 
 
-router.post('/download', function (req, res) {
+router.post('/download', async function (req, res) {
     const letter_data = req.body;
 
     const rawaccnumber = letter_data.accnumber;
@@ -49,7 +49,7 @@ router.post('/download', function (req, res) {
     const accnumber_masked = first4 + 'xxxxx';
 
     const doc = new Document({
-        
+
         sections: [
             {
                 footers: {
@@ -282,7 +282,7 @@ router.post('/download', function (req, res) {
                                                 color: "ffffff",
                                             },
                                         },
-                                        
+
                                         children: [new Paragraph('www.co-opbank.co.ke')],
                                     }),
                                 ]
@@ -338,7 +338,7 @@ router.post('/download', function (req, res) {
                                             },
                                         },
                                         children: [
-                                            new Paragraph('Date issued: '+ year + "-" + month + "-" + day),
+                                            new Paragraph('Date issued: ' + year + "-" + month + "-" + day),
                                         ],
                                     }),
                                     new TableCell({
@@ -359,7 +359,7 @@ router.post('/download', function (req, res) {
                                                 color: "ffffff",
                                             },
                                         },
-                                        children: [new Paragraph('Valid up to: '+ (letter_data.expirydate).toUpperCase())],
+                                        children: [new Paragraph('Valid up to: ' + (letter_data.expirydate).toUpperCase())],
                                     }),
                                 ]
                             }),
@@ -368,13 +368,13 @@ router.post('/download', function (req, res) {
                     new Paragraph(''),
                     new Paragraph('To:'),
                     new Paragraph(''),
-                            new Paragraph(letter_data.auctioneername),
-                            new Paragraph(letter_data.auctioneername),
+                    new Paragraph(letter_data.auctioneername),
+                    new Paragraph(letter_data.auctioneername),
                     new Paragraph(''),
                     new Paragraph('Dear Sir/Madam'),
                     new Paragraph(''),
                     new Paragraph({
-                        children: [new TextRun({ text: "RE: REPOSSESSION/COLLECTION ORDER", bold: true, underline: true})]
+                        children: [new TextRun({ text: "RE: REPOSSESSION/COLLECTION ORDER", bold: true, underline: true })]
                     }),
                     new Paragraph(''),
 
@@ -402,7 +402,7 @@ router.post('/download', function (req, res) {
                             },
                         },
                         rows: [
-                            
+
                             new TableRow({
                                 children: [
                                     new TableCell({
@@ -428,7 +428,7 @@ router.post('/download', function (req, res) {
                                         ],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.accnumber)],
                                     }),
                                 ]
@@ -504,7 +504,7 @@ router.post('/download', function (req, res) {
                                         ],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.vehiclemake)],
                                     }),
                                 ]
@@ -649,13 +649,13 @@ router.post('/download', function (req, res) {
                             }),
                         ]
                     }),// end table
-                    
+
                     new Paragraph(''),
                     new Paragraph({
                         children: [new TextRun("According to our records, the monthly rental of the above Asset finance Agreement is now in arrears. The total amount due is Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00'))],
                     }),
                     new Paragraph(''),
-                    
+
                     new Paragraph({
                         children: [new TextRun("Please approach the above named Debtor on our behalf and collect the total sum of Kes. " + numeral(Math.abs(letter_data.totalamount)).format('0,0.00') + " plus your own charges or, failing this, you may take this letter as your authority to effect immediate re-possession of the above vehicle without further reference to us. ")],
                     }),
@@ -676,18 +676,18 @@ router.post('/download', function (req, res) {
                             size: 9035,
                             type: WidthType.DXA,
                         },
-                        
+
                         rows: [
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [
                                             new Paragraph('Postal address of Debtor'),
                                         ],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.postaladdress || 'N/A')],
                                     }),
                                 ]
@@ -695,11 +695,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Telephone')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.celnumber || 'N/A')],
                                     }),
                                 ]
@@ -707,11 +707,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Actual physical address (if known) ')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.place || 'N/A')],
                                     }),
                                 ]
@@ -719,11 +719,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Employer (where applicable)')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.employer || 'N/A')],
                                     }),
                                 ]
@@ -731,11 +731,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Type of business ')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.typeofbusiness || 'N/A')],
                                     }),
                                 ]
@@ -743,11 +743,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Bankers and Branch')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.branchname || 'N/A')],
                                     }),
                                 ]
@@ -755,11 +755,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Purpose for which vehicle is being used ')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.purposeofvehicle || 'N/A')],
                                     }),
                                 ]
@@ -767,11 +767,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Guarantor (if any)')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.guarantors || 'N/A')],
                                     }),
                                 ]
@@ -779,11 +779,11 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Address of Guarantor')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.guarantorsaddress || 'N/A')],
                                     }),
                                 ]
@@ -791,16 +791,16 @@ router.post('/download', function (req, res) {
                             new TableRow({
                                 children: [
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph('Tracking Information / Report')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.trackinginformation || 'N/A')],
                                     }),
                                 ]
                             }),
-                            
+
                             new TableRow({
                                 children: [
                                     new TableCell({
@@ -811,7 +811,7 @@ router.post('/download', function (req, res) {
                                         children: [new Paragraph('Any other information')],
                                     }),
                                     new TableCell({
-                                        
+
                                         children: [new Paragraph(letter_data.anyotherinfo)],
                                     }),
                                 ]
@@ -820,13 +820,13 @@ router.post('/download', function (req, res) {
                     }),// end table
                     new Paragraph(''),
                     new Paragraph({
-                        children: [new TextRun({ text: "Terms and Conditions:", bold: true, underline: true})]
+                        children: [new TextRun({ text: "Terms and Conditions:", bold: true, underline: true })]
                     }),
                     new Paragraph(''),
                     new Paragraph('1. These instructions DO NOT give the auctioneer the right to sell the securities / motor vehicle / assets seized from the borrower or guarantor.'),
-                    
+
                     new Paragraph('2. Repossession fee and all other costs relating to recovery of the motor vehicle(s) will only be paid to the auctioneer who successfully recovers the asset on behalf of the Co-operative Bank.'),
-                    
+
                     new Paragraph('3. The successful auctioneer must provide the booking form which details the following:'),
                     new Paragraph('     a. Detailed description of the repossessed vehicle'),
                     new Paragraph('     b. Storage Yard Booking Sheet from the designated Yard'),
@@ -844,7 +844,7 @@ router.post('/download', function (req, res) {
                     new Paragraph('Signature Number                                                                                         Signature Number'),
                     new Paragraph(''),
                     new Paragraph({
-                        children: [new TextRun({ text: "Acceptance by Auctioneer:", bold: true, underline: true})]
+                        children: [new TextRun({ text: "Acceptance by Auctioneer:", bold: true, underline: true })]
                     }),
                     new Paragraph(''),
                     new Paragraph('I ………………………………………………… on behalf of ………………………………… confirm that I have read, understood and acceptance with the terms and conditions as stated in the repossession instruction.'),
@@ -852,16 +852,16 @@ router.post('/download', function (req, res) {
                     new Paragraph(''),
                     new Paragraph('Name: ……………………………………… Signature: …………………………… Date: ……………………')
                 ],
-                
+
             },
         ],
     });
 
-  
-    Packer.toBuffer(doc).then((buffer) => {
-        fs.writeFileSync(LETTERS_DIR + accnumber_masked +  "repossession.docx", buffer);
+    try {
+        const buffer = Packer.toBuffer(doc);
+        fs.writeFileSync(LETTERS_DIR + accnumber_masked + "repossession.docx", buffer);
         // save to minio
-        const filelocation = LETTERS_DIR + accnumber_masked +  "repossession.docx";
+        const filelocation = LETTERS_DIR + accnumber_masked + "repossession.docx";
         const bucket = 'demandletters';
         const savedfilename = accnumber_masked + '_' + "repossession.docx"
         var metaData = {
@@ -870,24 +870,26 @@ router.post('/download', function (req, res) {
             'X-Amz-Meta-Testing': 1234,
             'example': 5678
         }
-        minioClient.fPutObject(bucket, savedfilename, filelocation, metaData, function (error, objInfo) {
-            if (error) {
-                console.log(error);
-                res.status(500).json({
-                    success: false,
-                    error: error.message
-                })
-            }
-            res.json({
-                result: 'success',
-                message: LETTERS_DIR + accnumber_masked + "repossession.docx",
-                filename: accnumber_masked + "repossession.docx",
-                savedfilename: savedfilename,
-                objInfo: objInfo
-            })
-        });
+        const objInfo = await minioClient.fPutObject(bucket, savedfilename, filelocation, metaData);
+        res.json({
+            result: 'success',
+            message: LETTERS_DIR + accnumber_masked + "repossession.docx",
+            filename: accnumber_masked + "repossession.docx",
+            savedfilename: savedfilename,
+            objInfo: objInfo
+        })
         //save to mino end
-    })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            success: false,
+            error: error.message
+        })
+    }
+
+
+
+
 
 
 
