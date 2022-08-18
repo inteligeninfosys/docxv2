@@ -1145,10 +1145,6 @@ router.post('/download', function (req, res) {
         });
         //save to mino end
     })
-
-
-
-
 }); // end post
 function deleteFile(req) {
     fs.unlink(req, (err) => {

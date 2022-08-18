@@ -858,7 +858,7 @@ router.post('/download', async function (req, res) {
     });
 
     try {
-        const buffer = Packer.toBuffer(doc);
+        const buffer = await Packer.toBuffer(doc);
         fs.writeFileSync(LETTERS_DIR + accnumber_masked + "repossession.docx", buffer);
         // save to minio
         const filelocation = LETTERS_DIR + accnumber_masked + "repossession.docx";
