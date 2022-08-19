@@ -6,9 +6,11 @@ const cors = require('cors')
 //include the routes file
 var repossessionsendphy_word = require('./routes/repossessionsendphy_word');
 var repossessionsendphy_wordv1 = require('./routes/repossessionsendphy_wordv1');
+var repossessionsendphy_wordv1pdf = require('./routes/repossessionsendphy_wordv1pdf');
 
 app.use('/docxv2/repossessionsendphy_word', repossessionsendphy_word);
 app.use('/docxv2/repossessionsendphy_wordv1', repossessionsendphy_wordv1);
+app.use('/docxv2/repossessionsendphy_wordv1pdf', repossessionsendphy_wordv1pdf);
 
 router.get('/', function (req, res) { 
   res.json({ message: 'Demand letters ready Home!' });
