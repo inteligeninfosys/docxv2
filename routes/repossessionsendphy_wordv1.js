@@ -359,7 +359,7 @@ router.post('/download', async function (req, res) {
                                                 color: "ffffff",
                                             },
                                         },
-                                        children: [new Paragraph('Valid up to: ' + (letter_data.expirydate).toUpperCase())],
+                                        children: [new Paragraph('                      Valid up to: ' + (letter_data.expirydate).toUpperCase())],
                                     }),
                                 ]
                             }),
