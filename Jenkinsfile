@@ -7,7 +7,7 @@ node {
             checkout scm
       }
       stage("Docker build"){
-        app = docker.build("migutak/docxv2")
+        app = docker.build("inteligeninfosys/docxv2")
       }
 
       stage('Test'){
