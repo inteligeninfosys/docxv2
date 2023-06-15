@@ -4,7 +4,7 @@ const app = express();
 const docx = require('docx');
 const fs = require('fs');
 var numeral = require('numeral');
-var dateFormat = require('dateformat');
+//var dateFormat = require('dateformat');
 const cors = require('cors');
 var Minio = require("minio");
 require('log-timestamp');
@@ -60,7 +60,14 @@ router.post('/download', async function (req, res) {
     const GUARANTORS = req.body.guarantors || [];
     const INCLUDELOGO = req.body.showlogo;
     const DATA = req.body.accounts;
-    const DATE = dateFormat(new Date(), "dd-mmm-yyyy");
+    //const DATE = dateFormat(new Date(), "dd-mmm-yyyy");
+    const d_t = new Date();
+ 
+    let year = d_t.getFullYear();
+    let month = ("0" + (d_t.getMonth() + 1)).slice(-2);
+    let day = ("0" + d_t.getDate()).slice(-2);
+
+    const DATE =  year + "-" + month + "-" + day
 
     let NOTICE = 'fourteen days (14)';
     //

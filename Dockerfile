@@ -8,7 +8,7 @@ RUN chown node:node -R /app
 USER node
 # Install app dependencies
 COPY --chown=node package*.json ./
-RUN npm install --production
+RUN npm install
 COPY --chown=node . .
 
 EXPOSE 8040
