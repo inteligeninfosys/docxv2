@@ -15,5 +15,5 @@ EXPOSE 8040
 
 CMD ["node", "index.js"]
 
-#  docker build -t migutak/docxv2:5.0 .
+#  docker build -t migutak/docxv2:5.1 .
 
