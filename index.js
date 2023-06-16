@@ -13,8 +13,8 @@ var demand1 = require('./routes/demand1');
 app.use('/docxv2/repossessionsendphy_word', repossessionsendphy_word);
 app.use('/docxv2/repossessionsendphy_wordv1', repossessionsendphy_wordv1);
 app.use('/docxv2/repossessionsendphy_wordv1pdf', repossessionsendphy_wordv1pdf);
-app.use('/docxv2/demand2', demand2);
-app.use('/docxv2/demand1', demand1);
+app.use('/docxv2/demandletter2', demand2);
+app.use('/docxv2/demandletter1', demand1);
 
 router.get('/', function (req, res) { 
   res.json({ message: 'Demand letters ready Home!' });
